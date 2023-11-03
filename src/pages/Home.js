@@ -9,6 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchSmoothies();
+    insertTodo();
   }, [orderBy]);
 
   const handleDelete = (id) => {
@@ -29,6 +30,17 @@ const Home = () => {
       setSmoothies(data);
       setFetchError(null);
     }
+  };
+
+  const insertTodo = async () => {
+    const { data, error } = await supabase
+      .from("tasks")
+      .insert([
+        { user_id: "4b6607e0-afb4-4e2b-8166-bc97709d2028", task: "someValue" },
+      ])
+      .select();
+
+    console.log(error, data);
   };
 
   return (

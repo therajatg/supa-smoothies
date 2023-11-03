@@ -17,7 +17,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />
         <Route path="/:id" element={<Update />} />
-        <Route path="/v1/:id" element={<Update />} />
       </Routes>
     </BrowserRouter>
   );
